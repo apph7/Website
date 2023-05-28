@@ -141,7 +141,27 @@ background-color:#008080;
                                 </select>
 
 				
-				<input type="password" name="password" placeholder="密码"required>
+			  <div style="position: relative;">
+                               <input type="password" id="password" name="password" style="margin-bottom:40px; padding-right: 10px;" placeholder="密码">
+                          <div id="toggle-password" style="position: absolute; right: 5px; top: 5px; cursor: pointer;">
+                               <img id="eye-icon" src="../PhpProject1/image/close.png" alt="eye" style="margin-top: 7px;width: 16px; height: 16px;">
+                          </div>
+                          </div>
+
+<script>
+    const passwordInput = document.querySelector('#password');
+    const togglePassword = document.querySelector('#toggle-password');
+    const eyeIcon = document.querySelector('#eye-icon');
+    togglePassword.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.src = '../PhpProject1/image/open.png';
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.src = '../PhpProject1/image/close.png';
+        }
+    });
+</script>
 				
 				<input type="password" name="confirm_password"placeholder="确认密码" required>
                                                               

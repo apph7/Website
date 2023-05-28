@@ -167,9 +167,32 @@ background-color:#008080;
             <form name="myForm" onsubmit="return validateForm()" action="login.php" method="post" style="margin-bottom:68px;">
                             <h2 >党的知识测试系统登陆</h2>
 				
-                            <input type="text" name="username" style="margin-bottom:40px"placeholder="用户名">                           
+                            <input type="text" name="username" style="margin-bottom:40px;"placeholder="用户名">                           
 				
-				<input type="password" name="password"style="margin-bottom:40px" placeholder="密码">                            
+			  <div style="position: relative;">
+                               <input type="password" id="password" name="password" style="margin-bottom:40px; padding-right: 10px;" placeholder="密码">
+                          <div id="toggle-password" style="position: absolute; right: 5px; top: 5px; cursor: pointer;">
+                               <img id="eye-icon" src="../PhpProject1/image/close.png" alt="eye" style="margin-top: 7px;width: 16px; height: 16px;">
+                          </div>
+                          </div>
+
+<script>
+    const passwordInput = document.querySelector('#password');
+    const togglePassword = document.querySelector('#toggle-password');
+    const eyeIcon = document.querySelector('#eye-icon');
+    togglePassword.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.src = '../PhpProject1/image/open.png';
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.src = '../PhpProject1/image/close.png';
+        }
+    });
+</script>
+
+
+
                                 <select name="role" id ="role">
                                    <option value="admin">管理员</option>
                                    <option value="organizer">组织员</option>
@@ -198,10 +221,17 @@ background-color:#008080;
   <div class="modal-content">
     <span class="close-button">×</span>
     <div style="">
-        <p style="text-align:center">制作时长：2天半</p>       
-        <p style="text-align:center">全民制作人：计算2101孙国铭</p>
-        <p style="text-align:center">学号：2107010118</p>    
-        <p style="text-align:center">请勿抄袭，否则小心律师函</p>
+        <p style="text-align:center">全民制作人们大家好~~</p>   
+        <p style="text-align:center">我是个人练习时长2周半的 "个人练习生"</p>
+        <p style="text-align:center">计算2101孙国铭</p><br>
+      
+        <p style="text-align:center">喜欢PHP、HTML、MySQL</p>  
+        <p style="text-align:center">Music!!!</p> 
+       <audio controls style="display:block; margin:auto;"><source src="music/1.mp3" type="audio/mpeg">您的浏览器不支持 audio 元素。</audio>
+
+
+
+  
       
     </div>
   </div>

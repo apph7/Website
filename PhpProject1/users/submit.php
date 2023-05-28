@@ -39,7 +39,8 @@ foreach ($_POST as $name => $value) {
 
 
 if(count($results)!=11){
-    echo "<script>window.alert('题目未达完！');</script>";
+    echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
+    echo "<script>swal('题目未答完');</script>";
     exit();
 }
 $servername = 'localhost';  // mysql服务器主机地址

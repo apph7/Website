@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $servername = 'localhost';  // mysql服务器主机地址
 $username = 'root';            // mysql用户名
 $password = '';          // mysql用户名密码
@@ -290,12 +291,16 @@ if ($res) {
 }
     }
     
-if(isset($_POST["delete_user_id"])){       
-$username=$_POST["delete_user_id"];
-$sqll="delete from users where username='$username'";
-$re=$conn->query($sqll);
-    }
+if(isset($_POST["delete_user_id"])) {
+    $username = $_POST["delete_user_id"];
+    $sqll = "DELETE FROM users WHERE username='$username'";
+    $re = $conn->query($sqll);
+    header("Refresh:0");
+    exit();
 }
+
+}
+ob_end_flush();
 ?>
 
    

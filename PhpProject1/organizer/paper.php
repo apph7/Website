@@ -73,28 +73,34 @@ echo '<span style="font-size: 18px; color: #666; margin-right: 10px;">起始时�
 echo '<span style="font-size: 18px; color: #333;">' . $startDateTime . '</span>';
 echo '</div>';
 
-echo '<div>';
-echo '<span style="font-size: 18px; color: #666; margin-right: 10px;">结束时间：</span>';
-echo '<span style="font-size: 18px; color: #333;">' . $endDateTime . '</span>';
+echo '<div style="margin-bottom: 40px;">';
 ?>
+<div style="float: left;">
+    <?php
+        echo '<span style="font-size: 18px; color: #666; margin-right: 10px;">结束时间：</span>';
+        echo '<span style="font-size: 18px; color: #333;">' . $endDateTime . '</span>';
+    ?>
+</div>
+<div style="float: right;margin-bottom: 20px;">
+<form  action="../organizer/paper-detail.php" method="post">
+       <input name="no" value="<?php echo $no; ?>" type="hidden">
+<button  style="float: right;padding: 0;margin-bottom: 0px;background-color: white;">
 <span style="font-size: 18px; color: white; border: 1px solid green; background-color: silver; padding: 5px 10px; float: right;">做题人数：<?php echo $num ?></span>
 <span style="font-size: 18px; color: white; border: 1px solid green; background-color: silver; padding: 5px 10px; float: right;">合格率：<?php 
+
 if($num!=0)
 echo round(($pass/$num)*100)."%";
 else
 echo '0';
-?></span>
+?>
+</span>
+</button>
+</form>
+</div>
 <?php
 echo '</div>';
-
 echo '</div>';
- 
-   
-
-
-
 
 }
-
 
 ?>
