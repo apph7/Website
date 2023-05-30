@@ -139,12 +139,16 @@ $random_numbers = $slice;
         while ($row = mysqli_fetch_assoc($result)) {
           
             if($number==$row["no"]){
-        echo "<p>" . $i . ". " . $row["content"] . "</p>";
+        if ($row["option3"]!=NULL) {        
+        echo "<p>". "【单选题】". $i . ". " . $row["content"] . "</p>";}
+        else {
+        echo "<p>". "【判断题】". $i . ". " . $row["content"] . "</p>";}
+        
         // display answer choices as radio buttons
         echo "<div>";        
-        echo "<input type='radio' name='answer-" . $row["no"] . "' value='A'>" . $row["option1"] . "<br>";
-        echo "<input type='radio' name='answer-" . $row["no"] . "' value='B'>" . $row["option2"] . "<br>";
-        echo "<input type='radio' name='answer-" . $row["no"] . "' value='C'>" . $row["option3"] . "<br>";
+        if ($row["option1"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='A'>" . $row["option1"] . "<br>";}
+        if ($row["option2"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='B'>" . $row["option2"] . "<br>";}
+        if ($row["option3"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='C'>" . $row["option3"] . "<br>";}
         if ($row["option4"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='D'>" . $row["option4"] . "<br>";}
         echo "</div>";      
             } 

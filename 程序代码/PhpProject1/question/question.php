@@ -94,15 +94,10 @@ body {
 
 <h1 style="text-align: center;color: darkgray;">题目列表</h1>
 <div >
-
-
-
 <form action="question.php" method="post">
-  <input type="text" name="delete-no" style="margin-left:40px;">
-  <button type="submit" value="删除题目"></button>
+  <input type="text" name="delete-no" style="margin-left:40px; float: left;margin-top: 10px;">
+  <input type="submit" value="删除题目" style="float:left; margin-left: 0;">
 </form>
-
-
 </div>
 <div >
     <a href="../question/add_question.php" class="add-user" style="">添加题目</a>

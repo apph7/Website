@@ -16,10 +16,7 @@ $username=trim($_POST["username"]);
 if($username!=null)
 $sql = "SELECT  * FROM learning_record where username ='$username' ";
 else
-$sql = "SELECT  * FROM learning_record where username =' ' ";    
-}else
-{
-$sql = "SELECT  * FROM learning_record where username !=' ' "; 
+$sql = "SELECT  * FROM learning_record  ";    
 }
 $result = $conn->query($sql);
 
