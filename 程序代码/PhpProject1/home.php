@@ -239,7 +239,7 @@ background-color:#008080;
 
 <a href="#" id="notice-link">制作感想</a> 
 <a href="#" id="terms-link">注意条款&nbsp;&nbsp;</a>
-
+<a href="../PhpProject1/sun-or-night/sun-or-night.php">小太阳&nbsp;&nbsp;</a>
 <script>
     var noticeModal = document.querySelector("#notice-modal");
     var termsModal = document.querySelector("#terms-modal");
