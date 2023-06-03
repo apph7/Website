@@ -33,6 +33,10 @@ input[type=radio] {
   transform: scale(1.8);
   margin: 20px;
 }
+input[type=checkbox] {
+  transform: scale(1.8);
+  margin: 20px;
+}
 .form input[type="submit"]:hover {
   background-color: #ff9966;
  
@@ -88,7 +92,7 @@ while (count($random_numbers) < 10) {
         // display question number and content
         while ($row = mysqli_fetch_assoc($result)) {
           
-            if($number==$row["no"]){
+            if($number==$row["no"]&& strlen($row["answer"])==1){
         if ($row["option3"]!=NULL) {        
         echo "<p>". "【单选题】". $i . ". " . $row["content"] . "</p>";}
         else {
@@ -98,10 +102,22 @@ while (count($random_numbers) < 10) {
         echo "<div>";        
        if ($row["option1"]!=NULL) { echo "<input type='radio' name='answer-" . $row["no"] . "' value='A'>" . $row["option1"] . "<br>";}
        if ($row["option2"]!=NULL) { echo "<input type='radio' name='answer-" . $row["no"] . "' value='B'>" . $row["option2"] . "<br>";}
-        if ($row["option3"]!=NULL) { echo "<input type='radio' name='answer-" . $row["no"] . "' value='C'>" . $row["option3"] . "<br>";}
-        if ($row["option4"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='D'>" . $row["option4"] . "<br>";}
+       if ($row["option3"]!=NULL){ echo "<input type='radio' name='answer-".$row["no"] . "' value='C'>" . $row["option3"] . "<br>";}
+       if ($row["option4"]!=NULL){echo "<input type='radio' name='answer-" . $row["no"] . "' value='D'>" . $row["option4"] . "<br>";}
         echo "</div>";      
-            } 
+            }
+          elseif($number==$row["no"]&& strlen($row["answer"])>1) {       
+    echo "<p>". "【多选题】". $i . ". " . $row["content"] . "</p>";
+    
+    // display answer choices as checkboxes
+    echo "<div>";        
+    if ($row["option1"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='A'>" . $row["option1"] . "<br>";}
+    if ($row["option2"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='B'>" . $row["option2"] . "<br>";}
+    if ($row["option3"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='C'>" . $row["option3"] . "<br>";}
+    if ($row["option4"]!=NULL) {echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='D'>" . $row["option4"] . "<br>";}
+    echo "</div>";      
+
+        }
         }
         $i++;
         $query = "SELECT * FROM question_bank order by no";

@@ -32,7 +32,6 @@ $result = $conn->query($sql);
 if ($result->num_rows ==1) {
     // User found, start session and set session variables
     
-    
     $_SESSION["loggedin"] = true;
     
     while($ro = mysqli_fetch_assoc($result)) {
@@ -47,12 +46,13 @@ if ($result->num_rows ==1) {
     {header("Location: users\user.php");
     exit();}
     else{
-       echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
+   echo "<span> </span>";
+   echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
    echo "<script>swal('身份错误');</script>";
-    }
-        
+    }      
 } else {
     // User not found, show error message
+   echo "<span> </span>";
    echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
    echo "<script>swal('用户名或密码错误');</script>";
 }
@@ -60,6 +60,8 @@ $conn->close();
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -170,6 +172,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
 background-color:#5F9EA0;
 }
+
 form input[type="submit"]:active {
 background-color:#008080;
 }
@@ -300,7 +303,7 @@ background-color:#008080;
 
 <a href="#" id="notice-link">制作感想</a> 
 <a href="#" id="terms-link">注意条款&nbsp;&nbsp;</a>
-
+<a href="../PhpProject1/sun-or-night/sun-or-night.php">小太阳&nbsp;&nbsp;</a>
 <script>
     var noticeModal = document.querySelector("#notice-modal");
     var termsModal = document.querySelector("#terms-modal");
@@ -340,4 +343,3 @@ background-color:#008080;
        </div>
 </body>
 </html>
-

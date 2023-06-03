@@ -33,11 +33,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Get the answers from the form
 $results = array();
-foreach ($_POST as $name => $value) {
-  $results[$name] = $value;
+
+foreach($_POST as $key=>$value) {
+    echo "题目编号：".$key."<br>";
+    if(is_array($value)){
+        // for multiple answers
+        $s=  implode($value);
+        $results[$key] = $s;
+    }else{
+        // for single answer
+        $results[$key] = $value; 
+    }
 }
-
-
+foreach ($results as $name => $value) {
+  echo $name.'     '.$value."<br>";
+}
 if(count($results)!=11){
     echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
     echo "<script>swal('题目未答完');</script>";

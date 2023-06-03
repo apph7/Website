@@ -19,6 +19,13 @@
   margin-top: 20px; /* 添加顶部外边距，以与表单分隔 */
   margin-left: 60px;
   margin-right: 60px;
+  transition-duration: 0.5s;
+}
+.register:hover{
+    padding: 10px 25px;
+    font-size: 23px;
+    margin-left: 55px;
+    margin-right: 55px;
 }
 * {
 
@@ -136,7 +143,7 @@ background-color:#008080;
 </div>
 
 
-  <a href="generate_quiz.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 100px;">自学自考</a>
+  <a href="generate_quiz.php" class="register" style="font-size: 20px;  margin-bottom: 10px;margin-top: 30px;margin-bottom: 100px;">自学自考</a>
   <a href="#" onclick="document.getElementById('search-form').submit();" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 100px;margin-bottom: 100px;">学习记录查询</a>
   <form id="search-form" action="../learning_record/learning_record.php" method="post" style="display:none;">
     <?php  
@@ -145,7 +152,7 @@ background-color:#008080;
     ?>
     <input type="text" name="username" value="<?php echo $username; ?>">
   </form>
-  <a href="inspect.php" class="register" style="font-size: 20px;margin-top: 100px;margin-bottom: 100px;">考试试题</a>
+  <a href="inspect.php" class="register" style="font-size: 20px; margin-top: 100px;margin-bottom: 100px;">考试试题</a>
 </div>
     </div>
     
