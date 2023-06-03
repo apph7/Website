@@ -1,0 +1,81 @@
+  /* 设置背景图片 */
+        body {
+            background-image: url("../image/木白.png");
+            background-size: 100%;
+        }
+        
+        /* 设置表格样式 */
+        table {
+            border-collapse: collapse; /* 合并单元格边框 */
+            width: 80%; /* 设置表格宽度 */
+            margin: 20px auto; /* 将表格居中 */
+        }
+        
+        th, td {
+            padding: 10px; /* 设置单元格内边距 */
+            text-align: center; /* 将表格内容居中 */
+        }
+        
+        th {
+            background-color: #ff6633; /* 设置表头背景颜色 */
+            color: #ffffff; /* 设置表头字体颜色 */
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* 设置偶数行背景颜色 */
+        }
+        
+        /* 设置表单样式 */
+        form {
+            display: inline-block; /* 设置表单为内联元素 */
+        }
+        
+        input[type="password"], button[type="submit"] {
+            border: none; /* 去除表单边框 */
+            padding: 10px; /* 设置表单内边距 */
+            border-radius: 5px; /* 设置表单边框圆角 */
+            font-size: 16px; /* 设置表单字体大小 */
+            cursor: pointer; /* 设置鼠标指针为手形 */
+        }
+        
+        button[type="submit"] {
+            background-color: #ff6633; /* 设置提交按钮背景颜色 */
+            color: #ffffff; /* 设置提交按钮字体颜色 */
+            margin-left: 10px; /* 设置提交按钮左侧外边距 */
+        }
+        
+        /* 设置删除按钮样式 */
+        input[type="submit"] {
+            background-color: #ff6633; /* 设置删除按钮背景颜色 */
+            color: #ffffff; /* 设置删除按钮字体颜色 */
+            border: none; /* 去除删除按钮边框 */
+            padding: 5px; /* 设置删除按钮内边距 */
+            border-radius: 5px; /* 设置删除按钮边框圆角 */
+            font-size: 16px; /* 设置删除按钮字体大小 */
+            cursor: pointer; /* 设置鼠标指针为手形 */
+            align-content: center; /* 设置删除按钮内容居中 */
+            text-align: center; /* 设置删除按钮文本居中 */
+        }
+        
+        /* 设置按钮样式 */
+        .but, .manage {
+            display: inline-block; /* 设置按钮为内联元素 */
+            background-color: #ff6633; /* 设置按钮背景颜色 */
+            color: #ffffff; /* 设置按钮字体颜色 */
+            border: none; /* 去除按钮边框 */
+            padding: 20px; /* 设置按钮内边距 */
+                       border-radius: 5px; /* 设置按钮边框圆角 */
+            font-size: 16px; /* 设置按钮字体大小 */
+            cursor: pointer; /* 设置鼠标指针为手形 */
+            margin-right: 10px; /* 设置按钮右侧外边距 */
+        }
+        
+        /* 设置超链接样式 */
+        a {
+            text-decoration: none; /* 去除超链接下划线 */
+            color: #ff6633; /* 设置超链接字体颜色 */
+        }
+        
+        a:hover {
+            text-decoration: underline; /* 鼠标悬停时添加下划线 */
+        }
