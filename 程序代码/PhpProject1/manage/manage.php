@@ -38,6 +38,14 @@ $result = $conn->query($sql);
   margin-top: 20px; /* 添加顶部外边距，以与表单分隔 */
   margin-left: 60px;
   margin-right: 60px;
+  font-size: 20px; 
+  transition-duration: 0.5s;
+}
+.register:hover{
+    padding: 10px 25px;
+    font-size: 23px;
+    margin-left: 55px;
+    margin-right: 55px;
 }
 a {
   text-decoration: none;

@@ -109,6 +109,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
 background-color:#5F9EA0;
 }
+
 form input[type="submit"]:active {
 background-color:#008080;
 }

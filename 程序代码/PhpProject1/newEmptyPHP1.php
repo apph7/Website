@@ -1,3 +1,4 @@
 <?php
-  phpinfo();
+$user=$_POST["username"];
+echo $user;
 ?>
