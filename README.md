@@ -1,5 +1,5 @@
 # 数据库课程设计-党的基本知识测试系统
-前端用html后端用php写的
+前端用html，后端用php搭建起网站的基本框架，样式的美化用css和js脚本实现，用了一点css的关键帧增强交互体验
 
 效果图：
 ![QQ图片20230523194610](https://github.com/apph7/Website/assets/96182476/f9eac9d0-69e1-486b-853b-8080acb8e9e6)
