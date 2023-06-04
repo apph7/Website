@@ -1,3 +1,4 @@
+<?php include '../js/love.php';?>
  <?php
 // Start a session
 session_start();

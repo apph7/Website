@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <?php include '../js/love.php';?>
 	<title>党的知识测试</title>
         <style>
    

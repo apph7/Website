@@ -65,6 +65,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
+    <?php include '../PhpProject1/js/love.php';?>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<title>党的知识测试</title>
         <style>

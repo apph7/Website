@@ -28,7 +28,7 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <?php include '../js/love.php';?>
 	<title>生成试卷</title>
 	<style>
 		/* 样式调整，可根据需要进行修改 */

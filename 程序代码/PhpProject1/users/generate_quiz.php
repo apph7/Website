@@ -1,4 +1,6 @@
-
+<head>
+    <?php include '../js/love.php';?>
+</head>
 <?php
 // 连接数据库
 session_start();

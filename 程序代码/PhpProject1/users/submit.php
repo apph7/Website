@@ -1,5 +1,10 @@
+<?php
+// Start a session
+session_start();
+?>
 <!DOCTYPE html>
     <title>题目详情</title>
+    <?php include '../js/love.php';?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <style>
@@ -25,8 +30,7 @@ body {
    <?php include ("../header.php"); ?>
     
 <?php
-// Start a session
-session_start();
+
 $start=$_SESSION['start_time'];
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $results = array();
 
 foreach($_POST as $key=>$value) {
-    echo "题目编号：".$key."<br>";
+    
     if(is_array($value)){
         // for multiple answers
         $s=  implode($value);
@@ -45,9 +49,7 @@ foreach($_POST as $key=>$value) {
         $results[$key] = $value; 
     }
 }
-foreach ($results as $name => $value) {
-  echo $name.'     '.$value."<br>";
-}
+
 if(count($results)!=11){
     echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
     echo "<script>swal('题目未答完');</script>";

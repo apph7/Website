@@ -1,4 +1,6 @@
-
+<head>
+    <?php include '../js/love.php';?>
+</head>
 <style>
     .kaoshi{font-size: 18px;color: white; margin-right: 10px; border: 1px solid green; background-color: green; padding: 5px 10px; float: right;}
     .kaoshi:hover {font-size: 20px;color: white; margin-right: 8px; border: 1px solid green; background-color: green; padding: 5px 10px; float: right;}

@@ -1,4 +1,4 @@
-
+<?php include '../js/love.php';?>
 <?php
 session_start();
 // Check if the form was submitted

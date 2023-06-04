@@ -1,5 +1,6 @@
 <!DOCTYPE html>
     <title>题目详情</title>
+    <?php include '../js/love.php';?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <style>

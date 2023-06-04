@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?php include '../PhpProject1/js/love.php';?>
 	<title>党的知识测试系统</title>
         <style>
    
@@ -122,6 +123,7 @@ background-color:#008080;
 }
         </style>
 </head>
+
 <div style="background-image: url('../PhpProject1/image/R.jfif');background-size:100% 100%;background-attachment:fixed;margin-top:30px">
     <div style="margin-left:140px;">
         <div>
