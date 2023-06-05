@@ -157,10 +157,12 @@ background-color:#008080;
     
     <div style="margin-left: 300px; ">
          <?php include ('../users/header.php'); ?>  
-    </div>
-  
+       <div style="background-color: rgba(255, 255, 255, 0.5); margin-left: 80px; margin-right: 80px; margin-top: 150px; backdrop-filter: blur(5px);">
+    <?php include ('../organizer/statistics.php'); ?>  
+       </div>
 
-   
+    </div>
+
 
     
     

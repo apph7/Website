@@ -130,6 +130,26 @@ if ($conn->connect_error) {
      {$result = mysqli_query($conn, $learning);}
     
     if (mysqli_affected_rows($conn) == 1) {
+     // 获取当前日期
+$currentDate = date('Y-m-d');
+
+// 检查今天是否已经有登录和学习数据
+$sql = "SELECT * FROM statistics WHERE time = '$currentDate'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // 今天已经有登录和学习数据，更新学习人数加1
+    $sql = "UPDATE statistics SET learn = learn + 1 WHERE time = '$currentDate'";
+    if ($conn->query($sql) === TRUE) {
+    
+    } 
+} else {
+    // 今天没有登录和学习数据，插入一条新记录
+    $sql = "INSERT INTO statistics (login, learn, time) VALUES (0, 1, '$currentDate')";
+    if ($conn->query($sql) === TRUE) {
+       
+    } 
+}   
     ?>
        <div style="display:flex; justify-content:center; align-items:center; height:100%;">
     <span style="border: 1px solid gray; padding: 10px;background-color: lightgray;color: black;">学习记录保存成功</span>

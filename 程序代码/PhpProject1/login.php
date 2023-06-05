@@ -37,14 +37,80 @@ if ($result->num_rows ==1) {
     while($ro = mysqli_fetch_assoc($result)) {
     $confirm_role=$ro["role"];}
     if($role=="admin"&& $role==$confirm_role)
-    {header("Location: manage\manage.php");
-    exit();}
+    {
+$currentDate = date('Y-m-d');
+
+// 检查今天是否已经有登录和学习数据
+$sql = "SELECT * FROM statistics WHERE time = '$currentDate'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // 今天已经有登录和学习数据，更新登录人数加1
+    $sql = "UPDATE statistics SET login = login + 1 WHERE time = '$currentDate'";
+    if ($conn->query($sql) === TRUE) {
+       
+    } 
+} else {
+    // 今天没有登录和学习数据，插入一条新记录
+    $sql = "INSERT INTO statistics (login, learn, time) VALUES (1, 0, '$currentDate')";
+    if ($conn->query($sql) === TRUE) {
+      
+    } 
+} 
+    header("Location: manage\manage.php");
+    exit();
+    
+    }
     elseif($role=="organizer"&& $role==$confirm_role)
-    {header("Location: organizer\organizer.php");
-    exit();}
+    {
+        $currentDate = date('Y-m-d');
+
+// 检查今天是否已经有登录和学习数据
+$sql = "SELECT * FROM statistics WHERE time = '$currentDate'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // 今天已经有登录和学习数据，更新登录人数加1
+    $sql = "UPDATE statistics SET login = login + 1 WHERE time = '$currentDate'";
+    if ($conn->query($sql) === TRUE) {
+       
+    } 
+} else {
+    // 今天没有登录和学习数据，插入一条新记录
+    $sql = "INSERT INTO statistics (login, learn, time) VALUES (1, 0, '$currentDate')";
+    if ($conn->query($sql) === TRUE) {
+      
+    } 
+} 
+        header("Location: organizer\organizer.php");
+    exit();
+    
+    }
     elseif($role=="user"&& $role==$confirm_role)
-    {header("Location: users\user.php");
-    exit();}
+    {
+        $currentDate = date('Y-m-d');
+
+// 检查今天是否已经有登录和学习数据
+$sql = "SELECT * FROM statistics WHERE time = '$currentDate'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // 今天已经有登录和学习数据，更新登录人数加1
+    $sql = "UPDATE statistics SET login = login + 1 WHERE time = '$currentDate'";
+    if ($conn->query($sql) === TRUE) {
+       
+    } 
+} else {
+    // 今天没有登录和学习数据，插入一条新记录
+    $sql = "INSERT INTO statistics (login, learn, time) VALUES (1, 0, '$currentDate')";
+    if ($conn->query($sql) === TRUE) {
+      
+    } 
+} 
+        header("Location: users\user.php");
+    exit();
+    
+    }
     else{
    echo "<span> </span>";
    echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";

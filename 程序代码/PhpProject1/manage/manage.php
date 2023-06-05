@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 <head>
     <?php include '../js/love.php';?>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-	<title>生成试卷</title>
+	<title>管理员界面</title>
 	<style>
 		/* 样式调整，可根据需要进行修改 */
 	
@@ -215,6 +215,7 @@ background-color:#008080;
     <div style="margin-left: 300px; ">
          <?php include ('../users/header.php'); ?>  
     </div>
+    
        <!-- 管理员管理用户  -->
     <div style="margin-left: 450px; ">
         <h1 style="margin-left:500px">管理员界面</h1>
@@ -257,8 +258,9 @@ background-color:#008080;
         </tbody>
     </table>            
         </div> 
-
-   
+       <div style="width: 50%;background-color: rgba(255, 255, 255, 0.5); margin-left: 600px; margin-right: 80px; margin-top: 150px; backdrop-filter: blur(5px);">
+    <?php include ('../organizer/statistics.php'); ?>  
+       </div>
 
     
     
