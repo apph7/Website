@@ -268,6 +268,13 @@ background-color:#008080;
 </html>
 
 <?php
+$servername = 'localhost';  // mysql服务器主机地址
+$username = 'root';            // mysql用户名
+$password = '';          // mysql用户名密码
+$dbname = 'sgm';
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 if(isset($_POST["new_password"])&& isset($_POST["username"])){       
