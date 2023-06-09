@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 $servername = 'localhost';  // mysql服务器主机地址
 $username = 'root';            // mysql用户名
 $password = '';          // mysql用户名密码
@@ -48,6 +49,21 @@ $result = $conn->query($sql);
     margin-left: 55px;
     margin-right: 55px;
 }
+
+.styled-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: lightblue;
+}
+
 a {
   text-decoration: none;
   color: #666;
@@ -234,8 +250,21 @@ background-color:#008080;
         </thead>
         <tbody style="padding:10px;margin: 10px ">
             <?php while ($row = $result->fetch_assoc()): ?>
-            <tr style="margin: 10px;">
-                <td style="padding-top:20px;text-align: center"><?php echo $row["username"]; ?></td>
+            <tr>
+                <td style="padding-top:20px;text-align: center">
+                   <?php
+                   if($row["role"]=="user"){  ?>
+                    <form method="post" action="../users/user_score.php">
+    <input type="hidden" name="username" value="<?php echo $row["username"] ?>">
+    <button type="submit" class="styled-button"><?php echo $row["username"]; ?></button>
+</form>
+
+                
+                 <?php
+                   }else{ 
+                      echo $row["username"]; 
+                  } ?>
+                </td>
                     <td style="padding-top:20px;text-align: center"><?php echo $row["password"]; ?></td>
                     <td style="padding-top:20px;text-align: center"><?php echo $row["role"]; ?></td>
                     <td style="padding-top:20px;padding-left: 30px;padding-right: 30px;"><?php echo $row["email"]; ?></td>
@@ -258,7 +287,7 @@ background-color:#008080;
         </tbody>
     </table>            
         </div> 
-       <div style="width: 50%;background-color: rgba(255, 255, 255, 0.5); margin-left: 600px; margin-right: 80px; margin-top: 150px; backdrop-filter: blur(5px);">
+       <div style="width: 70%;background-color: rgba(255, 255, 255, 0.5); margin-left: 450px; margin-right: 80px; margin-top: 150px; backdrop-filter: blur(5px);">
     <?php include ('../organizer/statistics.php'); ?>  
        </div>
 

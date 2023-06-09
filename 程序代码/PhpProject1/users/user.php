@@ -159,12 +159,21 @@ background-color:#008080;
     
     <div style="margin-left: 260px; ">
          <?php include ('../users/header.php'); ?>  
+ 
     </div>
-  
+    <div style="margin-top: 100px;margin-left: 350px;">
+         <?php
+         ob_start();
+         include ('../users/user_score.php');  
+  // 获取捕获的输出内容
+    $file2Output = ob_get_clean();
 
-   
-
-    
+    // 显示捕获的输出内容
+    echo $file2Output;
+    ob_end_flush();
+    ?>
+    </div>
+      
     
 </body>
 </html>
