@@ -38,25 +38,32 @@ if ($result->num_rows ==1) {
     $confirm_role=$ro["role"];}
     if($role=="admin"&& $role==$confirm_role)
     {
-$currentDate = date('Y-m-d');
 
-// 检查今天是否已经有登录和学习数据
-$sql = "SELECT * FROM statistics WHERE time = '$currentDate'";
+$currentDate = date("Y-m-d"); // 获取当前日期
+
+// 查询今天是否已经有登录和学习数据
+$sql = "SELECT login FROM statistics WHERE time = '$currentDate'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // 今天已经有登录和学习数据，更新登录人数加1
-    $sql = "UPDATE statistics SET login = login + 1 WHERE time = '$currentDate'";
+    // 今天已经有登录和学习数据，执行更新登录人数的触发器
+    $sql = "INSERT INTO statistics (login, learn, time) VALUES (0, 0, '$currentDate')";
     if ($conn->query($sql) === TRUE) {
-       
-    } 
+        // 成功插入新记录，触发器将自动更新登录人数
+    } else {
+        // 处理插入失败的情况
+    }
 } else {
-    // 今天没有登录和学习数据，插入一条新记录
+    // 今天没有登录和学习数据，执行插入新记录的触发器
     $sql = "INSERT INTO statistics (login, learn, time) VALUES (1, 0, '$currentDate')";
     if ($conn->query($sql) === TRUE) {
-      
-    } 
-} 
+        // 成功插入新记录，触发器将自动更新登录人数
+    } else {
+        // 处理插入失败的情况
+    }
+}
+
+
     header("Location: manage\manage.php");
     exit();
     

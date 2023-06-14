@@ -49,10 +49,11 @@ body {
 
 
 /* 表单样式 */
-form {
-    margin-top: 110px;
-    margin-bottom:0px;  
-  height: 440px;
+.form {
+    margin-top: 30px;
+    margin-bottom:0px; 
+
+  height: 200px;
   display: inline-block;
   max-width: 300px;
   background-color: #fff; 
@@ -60,7 +61,7 @@ form {
   
 }
 
-form h2 {
+.form h2 {
   font-size: 30px;
   color: black;
   margin-bottom: 20px;
@@ -68,61 +69,13 @@ form h2 {
   text-align: center;
 }
 
-form label {
-  display: block;
-
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-form input[type="text"],
-form input[type="password"],
-form input[type="email"]{
-   width: 93%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #333;
-}
-
-form select{
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #333;
-}
 
 
 
-form input[type="submit"] {
- display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color:rgb(32,178,170);
-  color: #fff;
-  border: 10px;
-  padding: 10px 40px 10px 40px;
-  margin: 50px 111px 10px 80px;
-  border-radius: 20px;
-  font-size: 18px;
-  cursor: pointer;
-  align-content: center;
-  margin-left: 100px
-}
-form input[type="submit"]:hover {
-background-color:#5F9EA0;
-}
-form input[type="submit"]:active {
-background-color:#008080;
-}
 
 	</style>
+  
+
 </head>
 
 <body>
@@ -153,7 +106,7 @@ background-color:#008080;
     <input type="text" name="username" value="<?php echo $username; ?>">
   </form>
   <a href="inspect.php" class="register" style="font-size: 20px; margin-bottom: 60px;">考试试题</a>
-  <a href="../users/news.php" class="register" style="font-size: 20px; margin-bottom: 120px;">公告栏</a>
+    <a href="../users/news.php" class="register" style="font-size: 20px; margin-bottom: 120px;">公告栏</a>
 </div>
     </div>
     
@@ -162,18 +115,58 @@ background-color:#008080;
  
     </div>
    
-    <div style="margin-top: 100px;margin-left: 350px;">
-         <?php
-         ob_start();
-         include ('../users/user_score.php');  
-  // 获取捕获的输出内容
-    $file2Output = ob_get_clean();
+    
+    <?php
 
-    // 显示捕获的输出内容
-    echo $file2Output;
-    ob_end_flush();
-    ?>
-    </div>
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'sgm';
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT username, role, title, content, time FROM news";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    
+    echo '<h1 style="margin-left: 950px;">系统公告</h1>';
+
+    while ($row = $result->fetch_assoc()) {
+        ?>
+    <form style="margin-left: 400px; width: 70%;background-color: #F8F9F9;border-radius: 20px;padding-left:10px;padding-right:10px; ">
+    <?php
+        
+        $username = $row["username"];
+        $role = $row["role"];
+        $title = $row["title"];
+        $content = $row["content"];
+        $time = $row["time"];
+        
+       
+        echo '<h2>' . $title . '</h2>';
+        echo '<p>' . $content . '</p>';
+         echo '<p style="text-align: right;">' . $username .'('.$role.')'. '</p>';
+        echo '<p style="text-align: right;">' . $time . '</p>';
+       
+     
+     ?>
+</form> <?php
+    }
+
+    echo '</div>';
+} else {
+    echo '<p class="no-notification">没有消息可展示.</p>';
+}
+
+$conn->close();
+?>
+
+    
 
     
     

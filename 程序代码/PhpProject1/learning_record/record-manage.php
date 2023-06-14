@@ -192,8 +192,8 @@ table tr:nth-child(odd) {
 </div>
 
 
-      <a href="../rigister_login.php"class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">添加用户</a>
-      <a href="../question/add_question.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;" >添加题目</a> 
+       <a href="../rigister_login.php"class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">添加用户</a>
+      <a href="../manage/news.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;" >发布公告</a> 
       <a href="../question/question.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">题库列表</a>
       <a href="../learning_record/record-manage.php"class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">积极分子学习记录</a> 
       <a href="../organizer/paper.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">考察记录表</a> 

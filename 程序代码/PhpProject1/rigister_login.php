@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include '../PhpProject1/js/love.php';?>
+    <?php 
+           session_start();
+    include '../PhpProject1/js/love.php';?>
 	<title>党的知识测试系统</title>
         <style>
    
@@ -134,13 +136,32 @@ background-color:#008080;
 			<form action="register.php" method="post" style="margin-bottom:68px;">
                             <h2>注册</h2>
 				<input type="text" name="username" placeholder="用户名"required>
-                                
-                                <select name="role">
+                                <?php
+                         
+                                if(isset($_SESSION["role"])){
+                                    if($_SESSION["role"]=='admin'){
+                                        ?>
+                                        <select name="role">
                                       <option value="admin">管理员</option>
                                       <option value="organizer">组织员</option>
                                       <option value="user">入党积极分子</option>
+                                        </select>
+                                <?php
+                                    }elseif($_SESSION["role"]=='organizer'||$_SESSION["role"]=='user') {
+                                        ?>
+                                        <select name="role">
+                                  
+                                      <option value="user">入党积极分子</option>
+                                        </select>
+                                <?php
+                                    }
+                                }else{
+                                    ?>
+                                <select name="role">
+                                   
+                                      <option value="user">入党积极分子</option>
                                 </select>
-
+                              <?php  }  ?>
 				
 				<div style="position: relative;">
                                <input type="password" id="password" name="password" style="margin-bottom:40px; padding-right: 10px;" placeholder="密码">

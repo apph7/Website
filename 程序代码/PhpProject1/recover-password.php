@@ -11,12 +11,10 @@
 display: flex;
   flex-direction: column;
   align-items: center;
- 
   background-color: rgb(32,178,170);
   color: #fff;
   border: 10px;
   padding: 10px 10px 10px 10px;
-
   border-radius: 20px;
   font-size: 18px;
   cursor: pointer;

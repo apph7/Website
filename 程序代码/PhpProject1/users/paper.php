@@ -95,7 +95,10 @@ h1{
     border-radius: 5px;
     outline: none;
   }
-
+input[type=checkbox] {
+  transform: scale(1.8);
+  margin: 20px;
+}
   input[type="submit"] {
     width: 100%;
     height: 40px;
@@ -139,8 +142,11 @@ $random_numbers = $slice;
     foreach ($random_numbers as $number) {     
         // display question number and content
         while ($row = mysqli_fetch_assoc($result)) {
-          
-            if($number==$row["no"]){
+        if($row["option1"]==NULL&&$row["option2"]==NULL&&$row["option3"]==NULL&&$row["option4"]==NULL){
+            echo "<p>". "【主观题】". $i . ". " . $row["content"] . "</p>";
+            echo "<input type='text' name='answer-".$row["no"] . "' ><br>";
+        }  
+        elseif($number==$row["no"]&& strlen($row["answer"])==1){
         if ($row["option3"]!=NULL) {        
         echo "<p>". "【单选题】". $i . ". " . $row["content"] . "</p>";}
         else {
@@ -148,12 +154,28 @@ $random_numbers = $slice;
         
         // display answer choices as radio buttons
         echo "<div>";        
-        if ($row["option1"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='A'>" . $row["option1"] . "<br>";}
-        if ($row["option2"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='B'>" . $row["option2"] . "<br>";}
-        if ($row["option3"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='C'>" . $row["option3"] . "<br>";}
-        if ($row["option4"]!=NULL) {echo "<input type='radio' name='answer-" . $row["no"] . "' value='D'>" . $row["option4"] . "<br>";}
+       if ($row["option1"]!=NULL) { echo "<input type='radio' name='answer-" . $row["no"] . "' value='A'>" . $row["option1"] . "<br>";}
+       if ($row["option2"]!=NULL) { echo "<input type='radio' name='answer-" . $row["no"] . "' value='B'>" . $row["option2"] . "<br>";}
+       if ($row["option3"]!=NULL){ echo "<input type='radio' name='answer-".$row["no"] . "' value='C'>" . $row["option3"] . "<br>";}
+       if ($row["option4"]!=NULL){echo "<input type='radio' name='answer-" . $row["no"] . "' value='D'>" . $row["option4"] . "<br>";}
         echo "</div>";      
-            } 
+            }
+          elseif($number==$row["no"]&& strlen($row["answer"])>1) {
+    if ($row["option1"]==NULL) {    
+        echo "<p>". "【主观题】". $i . ". " . $row["content"] . "</p>";
+        echo "<input style='width:200px;height:100px;'type='textarea' name='answer-".$row["no"] . "' ><br>";
+    }else{ 
+    echo "<p>". "【多选题】". $i . ". " . $row["content"] . "</p>";
+    
+    // display answer choices as checkboxes
+    echo "<div>";        
+    if ($row["option1"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='A'>" . $row["option1"] . "<br>";}
+    if ($row["option2"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='B'>" . $row["option2"] . "<br>";}
+    if ($row["option3"]!=NULL) { echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='C'>" . $row["option3"] . "<br>";}
+    if ($row["option4"]!=NULL) {echo "<input type='checkbox' name='answer-" . $row["no"] . "[]' value='D'>" . $row["option4"] . "<br>";}
+    echo "</div>";  }    
+
+        } 
         }
         $i++;
         $query = "SELECT * FROM question_bank order by no";

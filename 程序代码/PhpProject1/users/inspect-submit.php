@@ -1,3 +1,4 @@
+<?php session_start();   ?>
 <!DOCTYPE html>
     <title>题目详情</title>
     <?php include '../js/love.php';?>
@@ -27,15 +28,24 @@ body {
     
 <?php
 // Start a session
-session_start();
+
 $time=$_SESSION["time"];
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Get the answers from the form
 $results = array();
-foreach ($_POST as $name => $value) {
-  $results[$name] = $value;
+
+foreach($_POST as $key=>$value) {
+    
+    if(is_array($value)){
+        // for multiple answers
+        $s=  implode($value);
+        $results[$key] = $s;
+    }else{
+        // for single answer
+        $results[$key] = $value; 
+    }
 }
 $numm=count($results)-1;
 $servername = 'localhost';  // mysql服务器主机地址

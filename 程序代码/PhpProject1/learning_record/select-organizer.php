@@ -200,11 +200,14 @@ table tr:nth-child(odd) {
 
 
 
-  <a href="../organizer/generate_quiz.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">生成试卷</a>
-    <a href="../organizer/paper.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">查看发布试卷</a>
-    <a href="../question/add_question.php" class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">添加题目</a>
-    <a href="../question/question.php"class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">题库列表</a>
-    <a href="../learning_record/record-organizer.php"class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">积极分子学习记录</a>
+  <a href="../users/modify_profile.php" class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom:30px;">修改个人信息</a>
+    <a href="../organizer/generate_quiz.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">生成试卷</a>
+    <a href="../organizer/paper.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">查看发布试卷</a>
+    
+    <a href="../question/question.php"class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">题库列表</a>
+    <a href="../learning_record/record-organizer.php"class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">积极分子学习记录</a>
+    <a href="../manage/news.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 20px;margin-bottom: 50px;" >发布公告</a> 
+
 </div>
     </div>
     

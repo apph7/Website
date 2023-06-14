@@ -10,8 +10,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 $username = $_SESSION['username'];
-$sql = "SELECT  * FROM learning_record where username ='$username' ";
+$sql = "CALL GetLearningRecords('$username')";
 $result = $conn->query($sql);
 
 
@@ -194,15 +195,18 @@ table tr:nth-child(odd) {
 
 
 
-    <a href="../users/generate_quiz.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 100px;">自学自考</a>
-  <a href="#" onclick="document.getElementById('search-form').submit();" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 100px;margin-bottom: 100px;">学习记录查询</a>
+    <a href="modify_profile.php" class="register" style="font-size: 20px;  margin-bottom: 10px;margin-bottom: 80px;">修改个人信息</a>
+  <a href="generate_quiz.php" class="register" style="font-size: 20px;  margin-bottom: 10px;margin-bottom: 80px;">自学自考</a>
+  <a href="#" onclick="document.getElementById('search-form').submit();" class="register" style="font-size: 20px; margin-bottom: 10px;margin-bottom: 80px;">学习记录查询</a>
   <form id="search-form" action="../learning_record/learning_record.php" method="post" style="display:none;">
     <?php  
-    
+    session_start();
+    $username = $_SESSION['username'];
     ?>
     <input type="text" name="username" value="<?php echo $username; ?>">
   </form>
-  <a href="../users/inspect.php" class="register" style="font-size: 20px;margin-top: 100px;margin-bottom: 100px;">考试试题</a>
+  <a href="inspect.php" class="register" style="font-size: 20px; margin-bottom: 60px;">考试试题</a>
+  <a href="../users/news.php" class="register" style="font-size: 20px; margin-bottom: 120px;">公告栏</a>
 </div>
     </div>
     

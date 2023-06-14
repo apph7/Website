@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<title>生成试卷</title>
 	<style>
 		/* 样式调整，可根据需要进行修改 */
 	
+             
 .register {
   display: inline-block;
   background-color: #ff6633;
@@ -19,7 +20,6 @@
   margin-top: 20px; /* 添加顶部外边距，以与表单分隔 */
   margin-left: 60px;
   margin-right: 60px;
-  font-size: 20px; 
   transition-duration: 0.5s;
 }
 .register:hover{
@@ -50,7 +50,7 @@ body {
 
 /* 表单样式 */
 form {
-    margin-top: 110px;
+    margin-top: 10px;
     margin-bottom:0px;  
   height: 440px;
   display: inline-block;
@@ -128,7 +128,7 @@ background-color:#008080;
 <body>
     <div>
 
-<div style="display:flex; flex-direction:column; position:fixed; background-image: url('../image/lin.png');border-left: 0px;  border-radius: 20px;margin-left: 30px">
+<div style="display:flex; flex-direction:column; position:fixed; background-image: url('../image/lin.png');border-left: 0px;  border-radius: 20px;margin-bottom:60px;margin-left: 30px">
     
  <div style="margin-top: 20px;margin-bottom: 20px;border: 10px;background: linear-gradient(to bottom,#FFFFE0	, #E0FFFF);;border-radius: 20px;">
   <img src="../image/po.png" style="border-radius: 80px;height: 100px;width: 100px;float:left;margin-left: 5px;">
@@ -136,13 +136,38 @@ background-color:#008080;
    session_start();
    $user=$_SESSION['username'];
    $role=$_SESSION['role'];
-   echo '<div style="border: 1px;background: linear-gradient(to bottom, #E6E6FA,#E0FFFF	);margin-left:28px;padding-top:10px;padding-bottom:0.5px;border-radius: 20px;">';
+   if($role=='admin'){
+  echo '<div style="border: 1px;background: linear-gradient(to bottom, #E6E6FA,#E0FFFF	);margin-left:28px;padding-top:10px;padding-bottom:0.5px;border-radius: 20px;">';
+  echo '<p style="position:relative;left:10px;top:10px;bottom:10px;color:black;">用户名：'.$user.'</p>';
+  echo '<p style="position:relative;left:10px;top:10px;color:black;">身份：'.$role.'</p>';
+     echo '</div>';     
+    ?>
+</div>
+
+
+     <a href="../rigister_login.php"class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">添加用户</a>
+      <a href="../manage/news.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;" >发布公告</a> 
+      <a href="../question/question.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">题库列表</a>
+      <a href="../learning_record/record-manage.php"class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">积极分子学习记录</a> 
+      <a href="../organizer/paper.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 50px;">考察记录表</a> 
+
+ 
+ 
+</div>
+        </div>
+    
+    <div style="margin-left: 300px; ">
+         <?php include ('../users/header.php'); ?>  
+    </div>
+    <?php
+   }elseif($role=='organizer'){
+       echo '<div style="border: 1px;background: linear-gradient(to bottom, #E6E6FA,#E0FFFF	);margin-left:28px;padding-top:10px;padding-bottom:0.5px;border-radius: 20px;">';
   echo '<p style="position:relative;left:10px;top:10px;bottom:10px;color:black;">用户名：'.$user.'</p>';
   echo '<p style="position:relative;left:10px;top:10px;color:black;">身份：'.$role.'</p>';
      echo '</div>';      
     ?>
 </div>
-    
+
     <a href="../users/modify_profile.php" class="register"  style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom:30px;">修改个人信息</a>
     <a href="../organizer/generate_quiz.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">生成试卷</a>
     <a href="../organizer/paper.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 30px;margin-bottom: 30px;">查看发布试卷</a>
@@ -152,24 +177,80 @@ background-color:#008080;
     <a href="../manage/news.php" class="register" style="font-size: 20px; margin-bottom: 10px;margin-top: 20px;margin-bottom: 50px;" >发布公告</a> 
 
  
+    
+
+ 
 </div>
     </div>
     
     <div style="margin-left: 300px; ">
          <?php include ('../users/header.php'); ?>  
-       <div style="background-color: rgba(255, 255, 255, 0.5); margin-left: 80px; margin-right: 80px; margin-top: 150px; backdrop-filter: blur(5px);">
-    <?php include ('../organizer/statistics.php'); ?>  
-       </div>
-
     </div>
+    <?php
+   }
+  
+   ?>
+    <div style="margin-top: 10px;margin-left: 700px;">
+        
+    <form  method="POST">
+        <h2>发布公告</h2>
+        <label for="title">标题</label>
+        <input type="text" name="title" required>
+
+        <label for="content">内容</label>
+        <input type="text" name="content" style="height: 100px;" required>
+
+        <!-- 其他需要修改的字段的输入框 -->
+
+        <input type="submit" value="发布">
+    </form>
+    </div>
+  <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // 连接到数据库
+    $servername = "localhost";
+    $dbname = "sgm";
+    $username = "root";
+    $password = "";
+    
+    // 创建数据库连接
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // 检查连接是否成功
+    if ($conn->connect_error) {
+        die("数据库连接失败: " . $conn->connect_error);
+    }
+    $username=$_SESSION["username"];
+    $role=$_SESSION["role"];
+    $title = $_POST["title"];
+    $content = $_POST["content"];
+    $currentDateTime = date('Y-m-d H:i:s', strtotime('+6 hours'));
+    // 更新数据库中的用户信息
+    $sql = "insert into news values('$username','$role','$title','$content','$currentDateTime')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "<span> </span>";
+   echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
+   echo "<script>swal('发布成功');</script>";
+    } else {
+       echo "<span> </span>";
+   echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>";
+   echo "<script>swal('发布失败');</script>";
+    }
+    
+    // 关闭数据库连接
+    $conn->close();
+}
+?>
 
 
     
+    
+    
+    
+    
+      
     
 </body>
 </html>
-
-
-
-   
- 
